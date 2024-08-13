@@ -27,7 +27,7 @@ my_dataframe = (
 #     use_container_width=True
 # )
 pd_df = my_dataframe.to_pandas()
-st.dataframe(pd_df.FRUIT_NAME)
+st.dataframe(pd_df[['FRUIT_NAME']])
 
 
 ingredients_list = st.multiselect(
