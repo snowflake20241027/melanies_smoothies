@@ -57,6 +57,7 @@ if ingredients_list:
 
     for fruit_chosen in ingredients_list:
         fruit_search_on = pd_df[pd_df.FRUIT_NAME == fruit_chosen].SEARCH_ON.unique()[0]
+        st.write(f"The sarch value for {fruit_chosen} is {fruit_search_on}.")
         st.subheader(f"{fruit_search_on} Nutrion Information")
         fruityvice_response = requests.get(f"https://fruityvice.com/api/fruit/{fruit_search_on}")
         fv_df =  st.dataframe(data=fruityvice_response.json(), use_container_width=True)
