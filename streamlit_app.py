@@ -19,7 +19,7 @@ session = cnx.session()
 my_dataframe = (
     session
     .table("smoothies.public.fruit_options")
-    .select(col('FRUIT_NAME'))
+    .select(col('FRUIT_NAME', 'SEARCH_ON))
 )
 st.dataframe(
     my_dataframe,
