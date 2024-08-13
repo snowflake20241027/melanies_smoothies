@@ -56,8 +56,9 @@ if ingredients_list:
         st.success('Your Smoothie is ordered!', icon="✅")
 
     for fruit_chosen in ingredients_list:
-        st.subheader(f"{fruit_chosen} Nutrion Information")
-        fruityvice_response = requests.get(f"https://fruityvice.com/api/fruit/{fruit_chosen}")
+        fruit_search_on = pd_df[pd_df.FRUIT_NAME == fruit_chosen].SEARCH_ON.unique()[0]
+        st.subheader(f"{fruit_search_on} Nutrion Information")
+        fruityvice_response = requests.get(f"https://fruityvice.com/api/fruit/{fruit_search_on}")
         fv_df =  st.dataframe(data=fruityvice_response.json(), use_container_width=True)
 
 
