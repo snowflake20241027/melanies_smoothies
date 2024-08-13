@@ -1,5 +1,5 @@
 # Import python packages
-import pandas
+import pandas as pd
 import requests
 import streamlit as st
 from snowflake.snowpark.functions import col
@@ -27,7 +27,7 @@ my_dataframe = (
 #     use_container_width=True
 # )
 pd_df = my_dataframe.to_pandas()
-st.dataframe(pd_df[['FRUIT_NAME']])
+st.dataframe(pd_df.drop(columns=['SEARCH_ON'])
 
 
 ingredients_list = st.multiselect(
